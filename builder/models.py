@@ -24,3 +24,12 @@ class Blog(models.Model):
         max_length=2000, default="https://www.equalityhumanrights.com/sites/default/files/styles/listing_image/public/default_images/blog-teaser-default-full_5.jpg?itok=YOsTg-7X")
     categories = models.CharField(max_length=200)
     updated_date = models.DateField(default=timezone.now)
+
+
+class ChatMessage(models.Model):
+    prompt = models.CharField(max_length=255)
+    response = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.prompt} - {self.response}"

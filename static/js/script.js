@@ -87,11 +87,11 @@ async function handleSubmit(e) {
   loader(messageBotDiv)
 
   // fetch data from server -> bot's response
-
-  const response = await fetch('https://chat-gpt-clone-lyli.onrender.com', {
+  const response = await fetch('/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'X-CSRFToken': '{{ csrf_token }}'
     },
     body: JSON.stringify({
       prompt: data.get('prompt'),

@@ -29,7 +29,9 @@ NoCodeMaker = [
     path('edit/<id>', NoCodeViews.editPage, name="editpage"),
     path('page/create', NoCodeViews.savePage, name="create_page"),
     path('editPage/<id>', NoCodeViews.editPageContent, name="editPageContent"),
-    path('preview/<id>', NoCodeViews.previewPage, name='previewPage')
+    path('preview/<id>', NoCodeViews.previewPage, name='previewPage'),
+    path('Own_Gpt', NoCodeViews.Own_Gpt, name='Own_Gpt'),
+    path('chat_view', NoCodeViews.chat_view, name='chat_view')
 ]
 
 BlogBuilder = [

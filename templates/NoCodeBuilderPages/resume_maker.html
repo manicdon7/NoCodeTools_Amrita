@@ -26,6 +26,7 @@
     <div class="panel__switcher flex justify-center">
         <form onsubmit="saveContent(event)">
             {% csrf_token %}
+            <input type="text" name="Project_name" id="Project_name">
             <button class="py-2 px-6 rounded text-white btn bg-blue-500 hover:bg-blue-600 mr-4"
                 type="submit">Save</button>
         </form>
@@ -480,6 +481,7 @@
         const formData = new FormData()
         formData.append('html', editor.getHtml());
         formData.append('css', editor.getCss());
+        formData.append('Project_name', document.getElementById('Project_name').value);
         const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
         const url = id ? `/editPage/${id}` : 'page/create';
         const request = new Request(

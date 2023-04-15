@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from ..models import Pages
+from ..models import Pages, ChatMessage
 from django.core.serializers import serialize
 import json
 from .Tool.Tools import random_image
+from .AI_Functions import Code_scriping
 # Create your views here.
 
 
@@ -46,3 +47,25 @@ def editPageContent(request, id):
 def previewPage(request, id):
     page = Pages.objects.get(pk=id)
     return render(request, 'NoCodeBuilderPages/preview.html', {"page": page})
+
+
+def ResumeBuilder(request):
+    if request.method == 'POST':
+        my_field_value = request.POST.get('my_field')
+        return render(request, 'NoCodeBuilderPages/resume_maker.html', {"page": my_field_value})
+    return render(request, 'common\Resume_input.html')
+
+
+def Own_Gpt(request):
+    return render(request, 'gpt\index.html')
+
+
+def chat_view(request):
+    if request.method == 'POST':
+        prompt = request.POST.get('prompt')
+        response = Code_scriping(prompt)
+        chat_message = ChatMessage(prompt=prompt, response=response)
+        chat_message.save()
+        return JsonResponse({'bot': response})
+
+    return render(request, 'gpt/index.html', {'chat_messages': ChatMessage.objects.all()})
