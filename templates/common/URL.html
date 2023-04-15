@@ -95,17 +95,17 @@
 
 					<li class="has-dropdown"><a>Edit</a>
 						<ul class="dropdown">
-							<li><a href="/edits"> Edit HTML</a></li>
-							<li><a href="/url"> URL</a></li>
+							<li><a href="/blog_edit"> Edit HTML</a></li>
+							<li><a href="/list_edit_blog"> URL</a></li>
 							<li><a href="/autogenerate">Auto Generate</a></li>
 						</ul>
 					</li>
 
 					<li class="has-dropdown"><a>Additional</a>
 						<ul class="dropdown">
-							<li><a href="/blog_edit"> Code Writer</a></li>
-							<li><a href="/list_edit_blog"> Error Solver</a></li>
-							<li><a href="/list_blog">Content Reader</a></li>
+							<li><a href="/edits"> Edit HTML</a></li>
+							<li><a href="/url"> URL</a></li>
+							<li><a href="/autogenerate">Auto Generate</a></li>
 						</ul>
 					</li>
 
@@ -119,7 +119,7 @@
 		<br><br>
 
 		<div class="ABC text-center">
-			<h2 class="title">Automation
+			<h2 class="title">URL
 		</h2>
 		</div>
     <!-- Container -->
@@ -131,10 +131,10 @@
 					<div style="text-align: center;">
 							<form action="/automation" method="post">
 								{% csrf_token %}
-								<textarea rows="60" name="text_area" id="text_area" cols="80" placeholder="Enter the Code" ></textarea>
+								<textarea rows="10" name="text_area" id="text_area" cols="20" placeholder="Enter the URL"></textarea>
 								</div><br>
-								<input class="white-btn" type="submit" value="Run Automation!!" >
-								<button class="white-btn" ><a href="https://github.com/NagiPragalathan/No_Code_Testing">Documentation</a></button>
+								<input class="white-btn" type="submit" value="Download" >
+								<button class="white-btn" >Go to Edit</button>
 							</form>
 				</div>
 				<!-- /Row -->

@@ -29,7 +29,11 @@ NoCodeMaker = [
     path('edit/<id>', NoCodeViews.editPage, name="editpage"),
     path('page/create', NoCodeViews.savePage, name="create_page"),
     path('editPage/<id>', NoCodeViews.editPageContent, name="editPageContent"),
-    path('preview/<id>', NoCodeViews.previewPage, name='previewPage')
+    path('preview/<id>', NoCodeViews.previewPage, name='previewPage'),
+    path('autogenerate', NoCodeViews.autogenerate, name='autogenerate'),
+    path('url', NoCodeViews.url, name='url'),
+    path('edits', NoCodeViews.edits, name='edits')
+
 ]
 
 BlogBuilder = [
