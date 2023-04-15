@@ -46,3 +46,13 @@ def editPageContent(request, id):
 def previewPage(request, id):
     page = Pages.objects.get(pk=id)
     return render(request, 'NoCodeBuilderPages/preview.html', {"page": page})
+
+
+def autogenerate(request):
+    return render(request, 'common/Autogenerate.html')
+
+def url(request):
+    return render(request, 'common/URL.html')
+
+def edits(request):
+    return render(request, 'common/Edit.html')
