@@ -37,6 +37,11 @@ NoCodeMaker = [
     path('edits', NoCodeViews.edits, name='edits'),
     path('Download_file', NoCodeViews.Download_file, name='Download_file'),
     path('ResumeBuilder', NoCodeViews.ResumeBuilder, name='ResumeBuilder'),
+    path('connect_metamask', NoCodeViews.connect_metamask, name='connect_metamask'),
+    path('block_detials/<str:block>',
+         NoCodeViews.block_detials, name='block_detials'),
+    path('blog_block_detials/<str:block>',
+         NoCodeViews.blog_block_detials, name='blog_block_detials'),
 ]
 
 BlogBuilder = [

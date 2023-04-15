@@ -789,7 +789,9 @@
             <!-- /.offcanvas -->
         </header>
         <!-- /header -->
-        <section class="wrapper image-wrapper bg-image bg-overlay text-white" style="background-image: url({{ blog.blog_profile_img }});" data-image-src="https://tpc.googlesyndication.com/simgad/13359388478229977453">
+        <section class="wrapper image-wrapper bg-image bg-overlay text-white"
+            style="background-image: url({{ blog.blog_profile_img }});"
+            data-image-src="https://tpc.googlesyndication.com/simgad/13359388478229977453">
             <div class="container pt-18 pb-15 pt-md-20 pb-md-19 text-center">
                 <div class="row">
                     <div class="col-md-10 col-xl-8 mx-auto">
@@ -803,6 +805,8 @@
                                 <iconify-icon icon="mdi:sort-time-descending" width="15"
                                     height="15"></iconify-icon><span> Last Updated</span></li>
                                 <a href="#" class="text-reset"><span>{{ blog.updated_date }}</span></a></li>
+                                <a href="{% url 'blog_block_detials' blog.Block_chin_blockNo %}"
+                                    class="text-reset"><span>{{ blog.Block_chin_blockNo }}</span></a></li>
                             </ul>
                             <!-- /.post-meta -->
                         </div>
@@ -821,7 +825,8 @@
                 max-height: 100%;
                 max-width: 100%;
             }
-            #hr-art hr{
+
+            #hr-art hr {
                 color: #afafbe;
                 margin-top: 10px;
                 margin-bottom: 10px;
@@ -861,25 +866,29 @@
                                                 <div class="swiper-slide">
                                                     <article>
                                                         <figure class="overlay overlay-1 hover-scale rounded mb-5"><a
-                                                                href="#"> <img onclick="get_blog({{ i.0.id }})" src=" {{ i.0.blog_profile_img }} "
-                                                                    alt="" /></a>
+                                                                href="#"> <img onclick="get_blog({{ i.0.id }})"
+                                                                    src=" {{ i.0.blog_profile_img }} " alt="" /></a>
                                                             <figcaption>
-                                                                <h5 onclick="get_blog({{ i.0.id }})" class="from-top mb-0">Read More</h5>
+                                                                <h5 onclick="get_blog({{ i.0.id }})"
+                                                                    class="from-top mb-0">Read More</h5>
                                                             </figcaption>
                                                         </figure>
                                                         <div class="post-header">
                                                             <div class="post-category text-line">
-                                                                <a href="#" class="hover" rel="category">{{ i.0.categories }}</a>
+                                                                <a href="#" class="hover" rel="category">{{
+                                                                    i.0.categories }}</a>
                                                             </div>
                                                             <!-- /.post-category -->
                                                             <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark"
-                                                                    href=" {% static 'blog-post.html' %} ">{{ i.0.title}}</a></h2>
+                                                                    href=" {% static 'blog-post.html' %} ">{{
+                                                                    i.0.title}}</a></h2>
                                                         </div>
                                                         <!-- /.post-header -->
                                                         <div class="post-footer">
                                                             <ul class="post-meta mb-0">
                                                                 <li class="post-date"><i
-                                                                        class="uil uil-calendar-alt"></i><span>{{ i.0.updated_date }}</span></li>
+                                                                        class="uil uil-calendar-alt"></i><span>{{
+                                                                        i.0.updated_date }}</span></li>
                                                                 <li class="post-comments"><a href="#"><i
                                                                             class="uil uil-comment"></i>4</a></li>
                                                             </ul>
@@ -927,18 +936,20 @@
                             <ul class="image-list">
                                 {% for i in item %}
                                 <li>
-                                    <figure class="rounded"><a onclick="get_blog({{ i.0.id }})"><img onclick="get_blog({{ i.0.id }})"
-                                                src=" {{ i.0.blog_profile_img }} " alt="" /></a></figure>
+                                    <figure class="rounded"><a onclick="get_blog({{ i.0.id }})"><img
+                                                onclick="get_blog({{ i.0.id }})" src=" {{ i.0.blog_profile_img }} "
+                                                alt="" /></a></figure>
                                     <div class="post-content">
-                                        <h6 class="mb-2"> <a class="link-dark" onclick="get_blog({{ i.0.id }})" >{{ i.0.title }}</a> </h6>
+                                        <h6 class="mb-2"> <a class="link-dark" onclick="get_blog({{ i.0.id }})">{{
+                                                i.0.title }}</a> </h6>
                                         <ul class="post-meta">
                                             <iconify-icon icon="system-uicons:calendar-date" width="15"
                                                 height="15"></iconify-icon><span> {{ i.0.updated_date }}</span>
                                 </li>
                                 <li class="post-comments"><iconify-icon icon="ri:numbers-fill" width="15"
-                                            height="15"></iconify-icon> {{ i|length }}</li>
+                                        height="15"></iconify-icon> {{ i|length }}</li>
                                 <li class="post-comments"><iconify-icon icon="carbon:categories" width="15"
-                                            height="15"></iconify-icon> {{ i.0.categories }}</li>
+                                        height="15"></iconify-icon> {{ i.0.categories }}</li>
 
                             </ul>
                             <!-- /.post-meta -->
@@ -981,7 +992,7 @@
     <script src=" {% static 'assets/js/theme.js' %} "></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
     <script>
-        function get_blog(id){
+        function get_blog(id) {
             location.href = id;
         }
     </script>

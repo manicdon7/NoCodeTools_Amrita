@@ -11,6 +11,8 @@ class Pages(models.Model):
     html = models.TextField()
     css = models.TextField()
     preview_link = models.TextField()
+    Block_chin_blockNo = models.CharField(max_length=50)
+    trans_detial = models.CharField(max_length=50)
 
 
 class Blog(models.Model):
@@ -24,6 +26,8 @@ class Blog(models.Model):
         max_length=2000, default="https://www.equalityhumanrights.com/sites/default/files/styles/listing_image/public/default_images/blog-teaser-default-full_5.jpg?itok=YOsTg-7X")
     categories = models.CharField(max_length=200)
     updated_date = models.DateField(default=timezone.now)
+    Block_chin_blockNo = models.CharField(max_length=50)
+    trans_detial = models.CharField(max_length=50)
 
 
 class ChatMessage(models.Model):
