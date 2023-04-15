@@ -5,7 +5,6 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as BraveService
 from selenium.webdriver.firefox.service import Service as FirefoxService
-from webdriver_manager.core.utils import ChromeType
 from webdriver_manager.microsoft import IEDriverManager
 from selenium.webdriver.ie.service import Service as IEService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
@@ -21,10 +20,6 @@ class SetupTools:
             test_driver = webdriver.Chrome(ChromeDriverManager().install())
         elif driver == 'ChromeService':
             test_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-        elif driver == 'Brave':
-            test_driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.BRAVE).install())
-        elif driver == 'BraveService':
-            test_driver = webdriver.Chrome(service=BraveService(ChromeDriverManager(chrome_type=ChromeType.BRAVE).install()))
         elif driver == 'Firefox':
             test_driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
         elif driver == 'FirefoxService':
