@@ -49,6 +49,7 @@ def previewPage(request, id):
     return render(request, 'NoCodeBuilderPages/preview.html', {"page": page})
 
 
+<<<<<<< HEAD
 def ResumeBuilder(request):
     if request.method == 'POST':
         my_field_value = request.POST.get('my_field')
@@ -69,3 +70,13 @@ def chat_view(request):
         return JsonResponse({'bot': response})
 
     return render(request, 'gpt/index.html', {'chat_messages': ChatMessage.objects.all()})
+=======
+def autogenerate(request):
+    return render(request, 'common/Autogenerate.html')
+
+def url(request):
+    return render(request, 'common/URL.html')
+
+def edits(request):
+    return render(request, 'common/Edit.html')
+>>>>>>> 06cd32a1a9f8ec8f203608365d44ba29fa37d9e9

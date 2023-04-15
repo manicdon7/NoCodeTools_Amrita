@@ -30,8 +30,15 @@ NoCodeMaker = [
     path('page/create', NoCodeViews.savePage, name="create_page"),
     path('editPage/<id>', NoCodeViews.editPageContent, name="editPageContent"),
     path('preview/<id>', NoCodeViews.previewPage, name='previewPage'),
+<<<<<<< HEAD
     path('Own_Gpt', NoCodeViews.Own_Gpt, name='Own_Gpt'),
     path('chat_view', NoCodeViews.chat_view, name='chat_view')
+=======
+    path('autogenerate', NoCodeViews.autogenerate, name='autogenerate'),
+    path('url', NoCodeViews.url, name='url'),
+    path('edits', NoCodeViews.edits, name='edits')
+
+>>>>>>> 06cd32a1a9f8ec8f203608365d44ba29fa37d9e9
 ]
 
 BlogBuilder = [
