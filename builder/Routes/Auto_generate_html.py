@@ -1,9 +1,11 @@
-from Tool.Html_Datas.Datas import *
-from Tool.Html_Datas.base import *
+from .Tool.Html_Datas.Datas import *
+from .Tool.Html_Datas.base import *
 from random import choice
 # from Tool.Tools import get_image_url, listof_get_image_url
 import random
 from bs4 import BeautifulSoup
+import requests
+from googlesearch import search
 
 
 def get_image_url(keyword):
@@ -202,10 +204,3 @@ class Make_web:
                 print("Error are occerd in Text.....")
 
         return str(soup)
-
-
-a = Make_web("write a code for food restorent", 'Food restorent')
-
-b = open("generated.html", 'w', encoding='utf-8')
-b.write(a.create_page())
-b.close()

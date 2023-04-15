@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +43,8 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('https://preview.redd.it/0bb6dqsiab451.gif?s=b0c65596a54a30708da26669da6e79abf3be1680');">
+		<div class="bg-img"
+			style="background-image: url('https://preview.redd.it/0bb6dqsiab451.gif?s=b0c65596a54a30708da26669da6e79abf3be1680');">
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
@@ -55,7 +57,7 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a href=" {% static 'index.html' %} ">
-							<img class="logo"  src=" {% static 'img/logo-alt.png' %} " alt="logo">
+							<img class="logo" src=" {% static 'img/logo-alt.png' %} " alt="logo">
 							<img class="logo-alt" src=" {% static 'img/logo-alt.png' %} " alt="logo">
 						</a>
 					</div>
@@ -65,26 +67,26 @@
 					<div class="nav-collapse">
 						<span></span>
 					</div>
-					
+
 				</div>
 
-				
+
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="/home">Home</a></li>
 					<li><a href="/home">About</a></li>
-					
+
 					<li><a href="home">Team</a></li>
 					<li class="has-dropdown"><a>NoCode</a>
 						<ul class="dropdown">
 							<li><a href="/add"> Create Page</a></li>
 							<li><a href="/view_pages"> View templates</a></li>
 						</ul>
-					</li>	
+					</li>
 					<li class="has-dropdown"><a>Playground</a>
 						<ul class="dropdown">
 							<li><a href="/automation"> Automation</a></li>
 						</ul>
-					</li>				
+					</li>
 					<li class="has-dropdown"><a>Blog</a>
 						<ul class="dropdown">
 							<li><a href="/blog_edit"> Create Blog</a></li>
@@ -120,38 +122,38 @@
 
 		<div class="ABC text-center">
 			<h2 class="title">Autogenerate
-		</h2>
+			</h2>
 		</div>
-    <!-- Container -->
-			<div class="container">
-	
-				<!-- Row -->
-				<div class="row">
-	
-					<div style="text-align: center;">
-							<form action="/automation" method="post">
-								{% csrf_token %}
-								<textarea rows="60" name="text_area" id="text_area" cols="80" placeholder="Enter the Code" ></textarea>
-								</div><br>
-								<input class="white-btn" type="submit" value="Edit NoCode" >
-								<button class="white-btn" >Download</button>
-							</form>
-				</div>
-				<!-- /Row -->
-	
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<div style="text-align: center;">
+					<form action="/autogenerate" method="post">
+						{% csrf_token %}
+						<input rows="60" name="query" id="query" cols="80" placeholder="Enter the query">
+						<input name="ProjectName" id="ProjectName" cols="80" placeholder="Enter the ProjectName">
+				</div><br>
+				<input class="white-btn" type="submit" value="Download">
+				</form>
 			</div>
-			<!-- /Container -->
-	
-		
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+
 
 		<!-- jQuery Plugins -->
 
-<script type="text/javascript" src=" {% static 'js/jquery.min.js' %} "></script>
-<script type="text/javascript" src=" {% static 'js/bootstrap.min.js' %} "></script>
-<script type="text/javascript" src=" {% static 'js/owl.carousel.min.js' %} "></script>
-<script type="text/javascript" src=" {% static 'js/jquery.magnific-popup.js' %} "></script>
-<script type="text/javascript" src=" {% static 'js/main.js' %} "></script>
-</header>
+		<script type="text/javascript" src=" {% static 'js/jquery.min.js' %} "></script>
+		<script type="text/javascript" src=" {% static 'js/bootstrap.min.js' %} "></script>
+		<script type="text/javascript" src=" {% static 'js/owl.carousel.min.js' %} "></script>
+		<script type="text/javascript" src=" {% static 'js/jquery.magnific-popup.js' %} "></script>
+		<script type="text/javascript" src=" {% static 'js/main.js' %} "></script>
+	</header>
 </body>
 
 </html>
