@@ -1,3 +1,4 @@
+import random
 import requests
 import re
 from googlesearch import search
@@ -53,6 +54,23 @@ def get_image_url(keyword):
         if img_url:
             image_urls.add(img_url)
     return list(image_urls)[0]
+
+
+def listof_get_image_url(keyword, len):
+    url = f"https://www.google.com/search?q={keyword}&tbm=isch"
+
+    # Make a GET request to the URL and get the HTML content
+    response = requests.get(url)
+    html_content = response.content
+
+    # Parse the HTML content using BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
+    image_urls = set()
+    for img in soup.find_all('img'):
+        img_url = img.get('src')
+        if img_url:
+            image_urls.add(img_url)
+    return list(image_urls)[0:len]
 
 
 def get_answer_from_given_link(question_url):
@@ -113,3 +131,21 @@ def get_stackoverflow_link(question, site='stackoverflow.com'):
 
 # print('answer', get_example_code_gfg(
 #     "https://www.geeksforgeeks.org/what-is-linked-list/"))
+
+def random_image():
+
+    # URL of website with SVG images
+    url = "https://www.google.com/search?q=nocode+svg+images&tbm=isch&ved=2ahUKEwj0j47uy6v-AhVc1HMBHQtXBaYQ2-cCegQIABAA&oq=nocode+svg+images&gs_lcp=CgNpbWcQAzoKCAAQigUQsQMQQzoHCAAQigUQQzoFCAAQgARQrQNYjAtgyw1oAHAAeACAAacCiAHoC5IBBTAuNC40mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=73A6ZLTcItyoz7sPi66VsAo&bih=760&biw=1536&rlz=1C1RXQR_enIN1038IN1038"
+    # Make a GET request to the URL and get the HTML content
+    response = requests.get(url)
+    html_content = response.content
+
+    # Parse the HTML content using BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
+    image_urls = set()
+    for img in soup.find_all('img'):
+        img_url = img.get('src')
+        if img_url:
+            image_urls.add(img_url)
+
+    return random.choice(list(image_urls))

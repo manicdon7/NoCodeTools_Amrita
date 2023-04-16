@@ -17,9 +17,9 @@
 
 	<!-- Owl Carousel -->
 	<link type="text/css" rel="stylesheet" href=" {% static 'css/owl.carousel.css' %} " />
-	<link type="text/css" rel="stylesheet" href=" {% static 'css/owl.theme.default.css' %} " />
 	<link type="text/css" rel="stylesheet" href=" {% static 'css/Automation.css' %} " />
 
+	<link type="text/css" rel="stylesheet" href=" {% static 'css/owl.theme.default.css' %} " />
 
 	<!-- Magnific Popup -->
 	<link type="text/css" rel="stylesheet" href=" {% static 'css/magnific-popup.css' %} " />
@@ -65,16 +65,16 @@
 					<div class="nav-collapse">
 						<span></span>
 					</div>
-					<!-- /Collapse nav button -->
+					
 				</div>
 
-				<!--  Main navigation  -->
+				
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="/home">Home</a></li>
 					<li><a href="/home">About</a></li>
 					
 					<li><a href="home">Team</a></li>
-					<li class="has-dropdown"><a href="/add">NoCode</a>
+					<li class="has-dropdown"><a>NoCode</a>
 						<ul class="dropdown">
 							<li><a href="/add"> Create Page</a></li>
 							<li><a href="/view_pages"> View templates</a></li>
@@ -92,8 +92,25 @@
 							<li><a href="/list_blog"> list Blogs</a></li>
 						</ul>
 					</li>
+
+					<li class="has-dropdown"><a>Edit</a>
+						<ul class="dropdown">
+							<li><a href="/edits"> Edit HTML</a></li>
+							<li><a href="/url"> URL</a></li>
+							<li><a href="/autogenerate">Auto Generate</a></li>
+						</ul>
 					</li>
-					<li><a href="#">MarketPlace</a></li>
+
+					<li class="has-dropdown"><a>Additional</a>
+						<ul class="dropdown">
+							<li><a href="/blog_edit"> Code Writer</a></li>
+							<li><a href="/list_edit_blog"> Error Solver</a></li>
+							<li><a href="/list_blog">Content Reader</a></li>
+						</ul>
+					</li>
+
+					</li>
+					<li><a href=" {% static '#contact' %} ">MarketPlace</a></li>
 				</ul>
 				<!-- /Main navigation -->
 

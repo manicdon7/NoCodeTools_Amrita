@@ -29,7 +29,19 @@ NoCodeMaker = [
     path('edit/<id>', NoCodeViews.editPage, name="editpage"),
     path('page/create', NoCodeViews.savePage, name="create_page"),
     path('editPage/<id>', NoCodeViews.editPageContent, name="editPageContent"),
-    path('preview/<id>', NoCodeViews.previewPage, name='previewPage')
+    path('preview/<id>', NoCodeViews.previewPage, name='previewPage'),
+    path('Own_Gpt', NoCodeViews.Own_Gpt, name='Own_Gpt'),
+    path('chat_view', NoCodeViews.chat_view, name='chat_view'),
+    path('autogenerate', NoCodeViews.autogenerate, name='autogenerate'),
+    path('url', NoCodeViews.url, name='url'),
+    path('edits', NoCodeViews.edits, name='edits'),
+    path('Download_file', NoCodeViews.Download_file, name='Download_file'),
+    path('ResumeBuilder', NoCodeViews.ResumeBuilder, name='ResumeBuilder'),
+    path('connect_metamask', NoCodeViews.connect_metamask, name='connect_metamask'),
+    path('block_detials/<str:block>',
+         NoCodeViews.block_detials, name='block_detials'),
+    path('blog_block_detials/<str:block>',
+         NoCodeViews.blog_block_detials, name='blog_block_detials'),
 ]
 
 BlogBuilder = [
