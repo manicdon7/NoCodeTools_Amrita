@@ -14,7 +14,7 @@ from .Auto_generate_html import Make_web
 # Create your views here.
 from web3 import Web3, HTTPProvider
 from WebpageBuilderDjango.settings import my_address, private_key
-
+import os
 w3 = Web3(Web3.HTTPProvider(
     'https://polygon-mumbai.g.alchemy.com/v2/K59YdNGK95akCLJrA1m9nYPZ7JYNa8Me'))
 
@@ -42,7 +42,7 @@ def savePage(request):
         Project_name = request.POST['Project_name']
 
         id = 1
-
+        # Ploygon >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         name = Project_name
         image = random_image()
         description = 'Description of Page 1'
@@ -67,7 +67,8 @@ def savePage(request):
                 "chainId": w3.eth.chainId,
                 "gasPrice": w3.eth.gas_price,
                 "from": my_address,
-                "nonce": nonce,  # the initial nonce should "orginal nonce value" after that you should be increase nonce
+                # the initial nonce should "orginal nonce value" after that you should be increase nonce
+                "nonce": nonce,
             }
         )
 
@@ -83,10 +84,63 @@ def savePage(request):
 
         print("Transaction hash code : ", tx_receipt,
               'Block number : ', tx_receipt.blockNumber)
+        # ----------------------------------------------------------------------------------------------------------------------
 
+        with open('_'.join(name.split())+'.html', 'w', encoding='utf-8') as fs:
+            fs.write(html)
+        fs.close()
+
+        url = "https://api.verbwire.com/v1/nft/store/file"
+
+        files = {"filePath": ('_'.join(name.split())+'.html', open(
+            '_'.join(name.split())+'.html', "rb"), "text/html")}
+        headers = {
+            "accept": "application/json",
+            "X-API-Key": "sk_live_fdd243a1-07c3-4c90-a976-c133c47f1b3a"
+        }
+        response_1 = requests.post(url, files=files, headers=headers)
+        print(response_1.text)
+
+        with open('_'.join(name.split())+'.css', 'w', encoding='utf-8') as fs:
+            fs.write(css)
+        fs.close()
+        url = "https://api.verbwire.com/v1/nft/store/file"
+
+        files = {"filePath": ('_'.join(name.split())+'.css', open(
+            '_'.join(name.split())+'.css', "rb"), "text/css")}
+        headers = {
+            "accept": "application/json",
+            "X-API-Key": "sk_live_fdd243a1-07c3-4c90-a976-c133c47f1b3a"
+        }
+
+        response_2 = requests.post(url, files=files, headers=headers)
+
+        print(response_2.text)
+
+        # ------------------------------------ html with css -----------------------------------------------------------------
+        with open('_'.join(name.split())+'(1).html', 'w', encoding='utf-8') as fs:
+            fs.write(html+f"""<style>{css}</style>""")
+        fs.close()
+        url = "https://api.verbwire.com/v1/nft/store/file"
+
+        files = {"filePath": ('_'.join(name.split())+'.css', open(
+            '_'.join(name.split())+'.css', "rb"), "text/css")}
+        headers = {
+            "accept": "application/json",
+            "X-API-Key": "sk_live_fdd243a1-07c3-4c90-a976-c133c47f1b3a"
+        }
+
+        response_3 = requests.post(url, files=files, headers=headers)
+
+        print(response_3.text)
+
+        # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End Polygone >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+        # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Base >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         page = Pages.objects.create(
-            name=Project_name, html=html, css=css, image=random_image(), Block_chin_blockNo=tx_receipt.blockNumber, trans_detial=tx_receipt)
+            name=Project_name, html=html, css=css, image=random_image(), Block_chin_blockNo=tx_receipt.blockNumber, trans_detial=tx_receipt, ipfs=response_1.text+" "+response_2.text+" "+response_3.text)
         page.save()
+        # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>End DB >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     return JsonResponse({"result": (json.loads(serialize('json', [page])))[0]})
 
 

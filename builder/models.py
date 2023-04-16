@@ -13,6 +13,7 @@ class Pages(models.Model):
     preview_link = models.TextField()
     Block_chin_blockNo = models.CharField(max_length=50)
     trans_detial = models.CharField(max_length=50)
+    ipfs = models.CharField(max_length=100)
 
 
 class Blog(models.Model):

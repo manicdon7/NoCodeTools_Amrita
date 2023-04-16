@@ -42,7 +42,7 @@ def save_blog(request):
     ).buildTransaction(
         {
             "chainId": w3.eth.chainId,
-            'gas': 300000,
+            'gas': 700000,
             'gasPrice': w3.eth.gas_price,
             "from": my_address,
             # the initial nonce should "orginal nonce value" after that you should be increase nonce
